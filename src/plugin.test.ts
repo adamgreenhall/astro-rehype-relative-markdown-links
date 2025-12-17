@@ -475,7 +475,7 @@ describe("astroRehypeRelativeMarkdownLinks", () => {
           .process(input);
 
         const expected =
-          '<html><head></head><body><a href="/index">foo</a></body></html>';
+          '<html><head></head><body><a href="/docs">foo</a></body></html>';
 
         assert.equal(actual, expected);
       });
@@ -492,7 +492,7 @@ describe("astroRehypeRelativeMarkdownLinks", () => {
           .process(input);
 
         const expected =
-          '<html><head></head><body><a href="/">foo</a></body></html>';
+          '<html><head></head><body><a href="/dir-test-custom-slug/">foo</a></body></html>';
 
         assert.equal(actual, expected);
       });
@@ -508,7 +508,7 @@ describe("astroRehypeRelativeMarkdownLinks", () => {
           .process(input);
 
         const expected =
-          '<html><head></head><body><a href="/test">foo</a></body></html>';
+          '<html><head></head><body><a href="/docs/test">foo</a></body></html>';
 
         assert.equal(actual, expected);
       });
@@ -542,7 +542,7 @@ describe("astroRehypeRelativeMarkdownLinks", () => {
           .process(input);
 
         const expected =
-          '<html><head></head><body><a href="/dir-test">foo</a></body></html>';
+          '<html><head></head><body><a href="/docs/dir-test">foo</a></body></html>';
 
         assert.equal(actual, expected);
       });
@@ -559,7 +559,7 @@ describe("astroRehypeRelativeMarkdownLinks", () => {
           .process(input);
 
         const expected =
-          '<html><head></head><body><a href="/dir-test/dir-test-child">foo</a></body></html>';
+          '<html><head></head><body><a href="/docs/dir-test/dir-test-child">foo</a></body></html>';
 
         assert.equal(actual, expected);
       });
@@ -576,7 +576,7 @@ describe("astroRehypeRelativeMarkdownLinks", () => {
           .process(input);
 
         const expected =
-          '<html><head></head><body><a href="/dir-test/dir-test-child">foo</a></body></html>';
+          '<html><head></head><body><a href="/docs/dir-test/dir-test-child">foo</a></body></html>';
 
         assert.equal(actual, expected);
       });
@@ -611,7 +611,7 @@ describe("astroRehypeRelativeMarkdownLinks", () => {
           .process(input);
 
         const expected =
-          '<html><head></head><body><a href="/test">foo</a></body></html>';
+          '<html><head></head><body><a href="/docs/test">foo</a></body></html>';
 
         assert.equal(actual, expected);
       });

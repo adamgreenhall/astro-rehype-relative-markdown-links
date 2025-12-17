@@ -136,7 +136,10 @@ const astroRehypeRelativeMarkdownLinks: Plugin<
       }
       // determine the path of the target file relative to the collection
       // since the slug for content collection pages is always relative to collection root
-      const collectionDir = path.join(contentDir, collectionName);
+      const collectionDir = path.join(
+        contentDir,
+        options.collectionBase === false ? "" : collectionName
+      );
       const relativeToCollectionPath = path.relative(
         collectionDir,
         urlFilePath
@@ -148,7 +151,9 @@ const astroRehypeRelativeMarkdownLinks: Plugin<
       // Astro generates a slug for each page on the site as a fallback if the page does not have a custom slug
       const generatedSlug = generateSlug(pathSegments);
       // if we have a custom slug, use it, else use the default
-      const resolvedSlug = resolveSlug(generatedSlug, frontmatterSlug);
+      const resolvedSlug =
+        resolveSlug(generatedSlug, frontmatterSlug) ||
+        (generatedSlug === "index" ? "" : generatedSlug);
       // determine the collection base based on specified options
       const resolvedCollectionBase = resolveCollectionBase(collectionOptions);
 
