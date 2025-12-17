@@ -72,7 +72,7 @@ export const isValidFile = (path: string): boolean => {
 };
 
 export const splitPathFromQueryAndFragment = (
-  url: string
+  url: string,
 ): [string, string | null] => {
   const indexQuery = url.indexOf("?");
   const indexHash = url.indexOf("#");
@@ -99,7 +99,7 @@ export const splitPathFromQueryAndFragment = (
 
 export const normaliseAstroOutputPath = (
   initialPath: string,
-  collectionOptions: EffectiveCollectionOptions
+  collectionOptions: EffectiveCollectionOptions,
 ): string => {
   const buildPath = () => {
     if (!collectionOptions.base) {
@@ -129,7 +129,7 @@ export const generateSlug = (pathSegments: string[]): string => {
 
 export const resolveSlug = (
   generatedSlug: string,
-  frontmatterSlug: unknown
+  frontmatterSlug: unknown,
 ) => {
   return z.string().default(generatedSlug).parse(frontmatterSlug);
 };
@@ -137,7 +137,7 @@ export const resolveSlug = (
 export const applyTrailingSlash = (
   origUrl: string,
   resolvedUrl: string,
-  trailingSlash: EffectiveCollectionOptions["trailingSlash"] = "ignore"
+  trailingSlash: EffectiveCollectionOptions["trailingSlash"] = "ignore",
 ) => {
   const hasTrailingSlash = resolvedUrl.endsWith(URL_PATH_SEPARATOR);
 
@@ -183,7 +183,7 @@ export function getMatter(npath: string): MatterData {
 }
 
 export function resolveCollectionBase(
-  collectionOptions: EffectiveCollectionOptions
+  collectionOptions: EffectiveCollectionOptions,
 ): string {
   return collectionOptions.collectionBase === false
     ? PATH_SEGMENT_EMPTY
